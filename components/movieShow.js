@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, ActivityIndicator, ScrollView, Image, Touchable
 import { getMovieDetailsFromApi, getImageFromApi } from '../API/tmdbapi'
 import moment from 'moment'
 import numeral from 'numeral'
+import EnlargeShrink from '../animations/enlargeShrink'
 
 class MovieShow extends React.Component {
   constructor(props){
@@ -56,14 +57,20 @@ class MovieShow extends React.Component {
 
   _displayFavoriteImage(){
     var imageFavorite = require('../assets/ic_favorite_border.png')
+    let shouldEnlarge = false
     if(this.props.favoritesMovies.findIndex(item => item.id === this.state.movie.id) !== -1){
       imageFavorite = require('../assets/ic_favorite.png')
+      shouldEnlarge = true
     }
     return(
-      <Image
-          style={styles.favorite_image}
-          source={imageFavorite}
-      />
+      <EnlargeShrink
+        shouldEnlarge={shouldEnlarge}
+      >
+        <Image
+            source={imageFavorite}
+            style={styles.favorite_image}
+        />
+      </EnlargeShrink>
     )
   }
 
@@ -217,8 +224,9 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   favorite_image: {
-    width: 40,
-    height: 40
+    flex: 1,
+    width: null,
+    height: null
   },
   share_touchable_floatingactionbutton: {
     position: 'absolute',
