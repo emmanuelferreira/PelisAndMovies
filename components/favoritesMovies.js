@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text} from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 import MovieList from './movieList';
-import Avatar from ' avatar';
+import Avatar from './avatar';
 
 
 
@@ -11,7 +11,7 @@ class Favorites extends React.Component {
     return (
       <View style={styles.main_container}>
         <View style={styles.avatar_container}>
-          <Avatar />
+          <Avatar/>
         </View>
         <MovieList
           movies={this.props.favoritesMovies}
