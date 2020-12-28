@@ -76,7 +76,6 @@ class Search extends React.Component {
           page={this.page}
           totalPages={this.totalPages}
           loadMovies={this._loadMovies}
-
         />
         {this._displayLoading()}
       </View>
