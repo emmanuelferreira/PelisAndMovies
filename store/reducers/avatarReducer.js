@@ -5,6 +5,10 @@ export default function avatarReducer (state = initialState, action){
   let nextState
   switch (action.type){
     case 'SET_AVATAR':
+      nextState = {
+        ...state,
+        avatar: action.value
+      }
 
       return nextState || state;
     default:
