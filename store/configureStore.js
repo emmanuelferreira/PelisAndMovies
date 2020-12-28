@@ -1,6 +1,7 @@
 import {createStore} from 'redux'
 import favoritesMovies from './reducers/favoritesReducer'
+import avatarReducer from './reducers/avatarReducer'
 
-const store = createStore(favoritesMovies)
+const store = createStore(combineReducers({favoritesMovies, avatarReducer})
 
 export default store

@@ -6,28 +6,25 @@ class Avatar extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      avatar: require('../assets/ic_tag_faces.png')
-    }
     this._avatarClicked = this._avatarClicked.bind(this)
   }
 
   _avatarClicked() {
-    ImagePicker.showImagePicker({}, (response) => {
-      if (response.didCancel) {
-        console.log('L\'utilisateur a annulé')
-      }
-      else if (response.error) {
-        console.log('Erreur : ', response.error)
-      }
-      else {
-        console.log('Photo : ', response.uri )
-        let requireSource = { uri: response.uri }
-        this.setState({
-          avatar: requireSource
-        })
-      }
-    })
+    // ImagePicker.showImagePicker({}, (response) => {
+    //   if (response.didCancel) {
+    //     console.log('L\'utilisateur a annulé')
+    //   }
+    //   else if (response.error) {
+    //     console.log('Erreur : ', response.error)
+    //   }
+    //   else {
+    //     console.log('Photo : ', response.uri )
+    //     let requireSource = { uri: response.uri }
+    //     this.setState({
+    //       avatar: requireSource
+    //     })
+    //   }
+    // })
   }
 
   render() {

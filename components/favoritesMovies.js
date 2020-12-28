@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state) => {
   return{
-    favoritesMovies: state.favoritesMovies
+    favoritesMovies: state.favoritesMovies.favoritesMovies
   }
 }
 
